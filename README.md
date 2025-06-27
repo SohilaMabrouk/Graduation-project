@@ -35,7 +35,7 @@ As chronic disease rates continue to climb worldwide—especially in developing 
 - **Microcontrollers:** ESP8266 / ESP32, Arduino Uno 
 - **Sensors:** MAX30100, MAX30205, MPU6050  
 - **Display:** OLED (I²C)  
-- **Protocols:** MQTT
+- **Protocols:** MQTT, HTTP
 - **Backend & Simulation:** Node-RED, EVE-NG  
 - **Cloud:** MQTT-compatible broker (Mosquitto)
 
