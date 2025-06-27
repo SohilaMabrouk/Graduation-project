@@ -1,0 +1,39 @@
+[
+    {
+        "id": "13ae3e8a9b59c7e5",
+        "type": "ui_text_input",
+        "z": "3c25484c09e58dc5",
+        "name": "OLED Message Input",
+        "label": "Send to OLED",
+        "group": "359e93712e8c5218",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "chroniconnect/patient001/oled",
+        "x": 120,
+        "y": 680,
+        "wires": [
+            [
+                "700a97b232bc7632"
+            ]
+        ]
+    },
+    {
+        "id": "359e93712e8c5218",
+        "type": "ui_group",
+        "name": "Actions",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "ui_tab_main",
+        "type": "ui_tab",
+        "name": "Patient Monitor",
+        "icon": "dashboard",
+        "order": 1
+    }
+]
