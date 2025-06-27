@@ -42,5 +42,5 @@ As chronic disease rates continue to climb worldwide—especially in developing 
 ## Getting Started  
 1. **Clone the repo**  
    ```bash
-   git clone https://github.com/<your-username>/Chroni-Connect.git
-   cd Chroni-Connect
+   git clone https://github.com/SohilaMabrouk/Graduation-project
+   cd Graduation-project
