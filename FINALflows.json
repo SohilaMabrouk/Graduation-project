@@ -1,8 +1,621 @@
 [
     {
-        "id": "13ae3e8a9b59c7e5",
+        "id": "7d416a795cd91127",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "fca7c5fc59a2a04e",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ui_tab_main",
+        "type": "ui_tab",
+        "name": "Patient Monitor",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "ui_group_status",
+        "type": "ui_group",
+        "name": "Live Status Panel",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "width": "6"
+    },
+    {
+        "id": "ui_group_emergency",
+        "type": "ui_group",
+        "name": "Emergency Control",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "HiveMQ",
+        "broker": "10.6.4.1",
+        "port": "1883",
+        "clientid": "node-red-dashboard",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "10c2bcb4be1eb64f",
+        "type": "ui_group",
+        "name": "Vital Signs",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "width": "6"
+    },
+    {
+        "id": "83dc73e501a61595",
+        "type": "ui_group",
+        "name": "Alerts",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "dacaa4b3774265ef",
+        "type": "ui_group",
+        "name": "Actions",
+        "tab": "ui_tab_main",
+        "order": 3,
+        "width": "6"
+    },
+    {
+        "id": "f2eb9119b8dab43a",
+        "type": "ui_tab",
+        "name": "History & Logs",
+        "icon": "history",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "544b8dec95672e0c",
+        "type": "ui_group",
+        "name": "Vital Signs",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "width": "6"
+    },
+    {
+        "id": "204cdc815bc23104",
+        "type": "ui_group",
+        "name": "Alerts",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "11c72ba21895ffeb",
+        "type": "ui_group",
+        "name": "Actions",
+        "tab": "ui_tab_main",
+        "order": 3,
+        "width": "6"
+    },
+    {
+        "id": "850c1b53a12c426d",
+        "type": "ui_tab",
+        "name": "History & Logs",
+        "icon": "history",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f2e33d02296609fa",
+        "type": "ui_group",
+        "name": "Vital Signs",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "width": "6"
+    },
+    {
+        "id": "359e93712e8c5218",
+        "type": "ui_group",
+        "name": "Actions",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "783e8690b42dcd45",
+        "type": "ui_tab",
+        "name": "Patient History",
+        "icon": "history",
+        "order": 2
+    },
+    {
+        "id": "cdbcdd8f2316ab88",
+        "type": "ui_group",
+        "name": "Historical Data",
+        "tab": "f2eb9119b8dab43a",
+        "order": 1,
+        "width": "12"
+    },
+    {
+        "id": "25de8e7a248185bc",
+        "type": "ui_group",
+        "name": "Activity Log",
+        "tab": "f2eb9119b8dab43a",
+        "order": 2,
+        "width": "12"
+    },
+    {
+        "id": "ac09dbaa1a845054",
+        "type": "ui_group",
+        "name": "Historical Data",
+        "tab": "850c1b53a12c426d",
+        "order": 1,
+        "width": "12"
+    },
+    {
+        "id": "26321164e289c9a4",
+        "type": "ui_group",
+        "name": "Activity Log",
+        "tab": "850c1b53a12c426d",
+        "order": 2,
+        "width": "12"
+    },
+    {
+        "id": "a8278f3d1d8d3fa5",
+        "type": "ui_group",
+        "name": "Patient History",
+        "tab": "783e8690b42dcd45",
+        "order": 1,
+        "width": "12"
+    },
+    {
+        "id": "681ddaba32efe4a7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "10.6.4.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "f1b177f73adc480d",
+        "type": "ui_group",
+        "name": "Critical Priority",
+        "tab": "ui_tab_main",
+        "order": 1,
+        "width": 12
+    },
+    {
+        "id": "4440f9ab51d4e5e3",
+        "type": "ui_group",
+        "name": "High Priority",
+        "tab": "ui_tab_main",
+        "order": 2,
+        "width": 12
+    },
+    {
+        "id": "bb189cb0b34d9560",
+        "type": "ui_tab",
+        "name": "Patient History",
+        "icon": "history",
+        "order": 2
+    },
+    {
+        "id": "b88138fe351375a4",
+        "type": "ui_tab",
+        "name": "Ambulance Dashboard",
+        "icon": "ambulance",
+        "order": 3
+    },
+    {
+        "id": "4fbc0f7b34f949de",
+        "type": "ui_group",
+        "name": "Critical Priority",
+        "tab": "b88138fe351375a4",
+        "order": 1,
+        "width": 12
+    },
+    {
+        "id": "5af0670096cfec50",
+        "type": "ui_group",
+        "name": "High Priority",
+        "tab": "b88138fe351375a4",
+        "order": 2,
+        "width": 12
+    },
+    {
+        "id": "e04919b6b6b15708",
+        "type": "ui_tab",
+        "name": "Patient History",
+        "icon": "history",
+        "order": 2
+    },
+    {
+        "id": "9cd0fe7768a5a626",
+        "type": "ui_tab",
+        "name": "Ambulance Dashboard",
+        "icon": "ambulance",
+        "order": 3
+    },
+    {
+        "id": "5b2d577216495845",
+        "type": "ui_group",
+        "name": "Critical Priority",
+        "tab": "9cd0fe7768a5a626",
+        "order": 1,
+        "width": 12
+    },
+    {
+        "id": "3db23f0adf69619b",
+        "type": "ui_group",
+        "name": "High Priority",
+        "tab": "9cd0fe7768a5a626",
+        "order": 2,
+        "width": 12
+    },
+    {
+        "id": "ui_tab_ambulance",
+        "type": "ui_tab",
+        "name": "Ambulance Dashboard",
+        "icon": "ambulance",
+        "order": 3
+    },
+    {
+        "id": "critical_section",
+        "type": "ui_group",
+        "name": "Critical Priority",
+        "tab": "ui_tab_ambulance",
+        "order": 2,
+        "width": 12,
+        "className": "critical-section"
+    },
+    {
+        "id": "high_section",
+        "type": "ui_group",
+        "name": "High Priority",
+        "tab": "ui_tab_ambulance",
+        "order": 3,
+        "width": 12,
+        "className": "high-section"
+    },
+    {
+        "id": "b40cb8c1f3b8b23b",
+        "type": "ui_tab",
+        "name": "Ambulance Dashboard",
+        "icon": "ambulance",
+        "order": 3
+    },
+    {
+        "id": "793b8f3c5bbd9a74",
+        "type": "ui_tab",
+        "name": "Ambulance Dashboard",
+        "icon": "ambulance",
+        "order": 3
+    },
+    {
+        "id": "41daddb897697f15",
+        "type": "ui_tab",
+        "name": "Ambulance Dashboard",
+        "icon": "ambulance",
+        "order": 3
+    },
+    {
+        "id": "6f7e8a7f52d6ab38",
+        "type": "ui_tab",
+        "name": "Patient Monitor",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "8bd2ab2e85c64610",
+        "type": "ui_group",
+        "name": "Actions",
+        "tab": "6f7e8a7f52d6ab38",
+        "order": 2,
+        "width": "6"
+    },
+    {
+        "id": "e114e5af4a2622f2",
+        "type": "mqtt in",
+        "z": "7d416a795cd91127",
+        "name": "Heart Rate",
+        "topic": "chroniconnect/patient001/hr",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "681ddaba32efe4a7",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "047640babcb00044",
+                "77b6e1a8b7f68ce7",
+                "e69e3ef30fd906d2"
+            ]
+        ]
+    },
+    {
+        "id": "047640babcb00044",
+        "type": "ui_gauge",
+        "z": "7d416a795cd91127",
+        "name": "Heart Rate",
+        "group": "f2e33d02296609fa",
+        "gtype": "gage",
+        "label": "Heart Rate (bpm)",
+        "format": "{{value}} bpm",
+        "min": 50,
+        "max": 150,
+        "colors": [
+            "#00FF00",
+            "#FFFF00",
+            "#FF0000"
+        ],
+        "x": 400,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7f551cc9af65ae3d",
+        "type": "mqtt in",
+        "z": "7d416a795cd91127",
+        "name": "SpO2",
+        "topic": "chroniconnect/patient001/spo2",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "681ddaba32efe4a7",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "31cb9001353ede42",
+                "aaf4e6e84da60a02",
+                "e69e3ef30fd906d2"
+            ]
+        ]
+    },
+    {
+        "id": "31cb9001353ede42",
+        "type": "ui_gauge",
+        "z": "7d416a795cd91127",
+        "name": "SpO2",
+        "group": "f2e33d02296609fa",
+        "width": "",
+        "height": "",
+        "gtype": "gage",
+        "title": "",
+        "label": "Oxygen Saturation",
+        "format": "{{value}}%",
+        "min": 85,
+        "max": 100,
+        "colors": [
+            "#ff0000",
+            "#ffff00",
+            "#00ff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 400,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "88d50c301389e355",
+        "type": "mqtt in",
+        "z": "7d416a795cd91127",
+        "name": "Glucose",
+        "topic": "chroniconnect/patient001/glu",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "681ddaba32efe4a7",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 100,
+        "y": 340,
+        "wires": [
+            [
+                "4b153916a5f7ebfe",
+                "f36e92855d577e8d",
+                "e69e3ef30fd906d2"
+            ]
+        ]
+    },
+    {
+        "id": "3f05d46306260fb1",
+        "type": "mqtt in",
+        "z": "7d416a795cd91127",
+        "name": "Fall Detection",
+        "topic": "chroniconnect/patient001/fall",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "681ddaba32efe4a7",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "e7aaa031e0ef18a1",
+                "fed38eb1c51044a3"
+            ]
+        ]
+    },
+    {
+        "id": "eee22881df7658b0",
+        "type": "ui_button",
+        "z": "7d416a795cd91127",
+        "name": "Emergency Button",
+        "group": "359e93712e8c5218",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "EMERGENCY",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "EMERGENCY_ACTIVATED",
+        "payloadType": "str",
+        "topic": "chroniconnect/patient001/emergency",
+        "topicType": "str",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "fef59c0d0cc827cf"
+            ]
+        ]
+    },
+    {
+        "id": "992550c735ab1ed6",
         "type": "ui_text_input",
-        "z": "3c25484c09e58dc5",
+        "z": "7d416a795cd91127",
         "name": "OLED Message Input",
         "label": "Send to OLED",
         "group": "359e93712e8c5218",
@@ -14,26 +627,369 @@
         "delay": 300,
         "topic": "chroniconnect/patient001/oled",
         "x": 120,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
-                "700a97b232bc7632"
+                "b438637442f5036b"
             ]
         ]
     },
     {
-        "id": "359e93712e8c5218",
-        "type": "ui_group",
-        "name": "Actions",
-        "tab": "ui_tab_main",
-        "order": 2,
-        "width": "6"
+        "id": "6e55098dcb107d75",
+        "type": "ui_template",
+        "z": "7d416a795cd91127",
+        "group": "a8278f3d1d8d3fa5",
+        "name": "Patient History",
+        "order": 0,
+        "width": "12",
+        "height": "6",
+        "format": "<div style=\"padding: 10px;\">\n  <h3>Patient History</h3>\n  \n  <h4>Vital Signs</h4>\n  <div class=\"row\">\n    <div class=\"col-md-3\">\n      <h5>Heart Rate</h5>\n      <table class=\"table table-sm\">\n        <tr ng-repeat=\"item in hrHistory | orderBy:'-timestamp'\">\n          <td>{{item.timestamp}}</td>\n          <td>{{item.value}} bpm</td>\n        </tr>\n      </table>\n    </div>\n    \n    <div class=\"col-md-3\">\n      <h5>SpO2</h5>\n      <table class=\"table table-sm\">\n        <tr ng-repeat=\"item in spo2History | orderBy:'-timestamp'\">\n          <td>{{item.timestamp}}</td>\n          <td>{{item.value}}%</td>\n        </tr>\n      </table>\n    </div>\n    \n    <div class=\"col-md-3\">\n      <h5>Glucose</h5>\n      <table class=\"table table-sm\">\n        <tr ng-repeat=\"item in glucoseHistory | orderBy:'-timestamp'\">\n          <td>{{item.timestamp}}</td>\n          <td>{{item.value}} mg/dL</td>\n        </tr>\n      </table>\n    </div>\n    \n    <div class=\"col-md-3\">\n      <h5>Temperature</h5>\n      <table class=\"table table-sm\">\n        <tr ng-repeat=\"item in tempHistory | orderBy:'-timestamp'\">\n          <td>{{item.timestamp}}</td>\n          <td>{{item.value}}°C</td>\n        </tr>\n      </table>\n    </div>\n  </div>\n  \n  <h4>Events</h4>\n  <table class=\"table table-striped\">\n    <tr ng-repeat=\"item in eventHistory | orderBy:'-timestamp'\">\n      <td>{{item.timestamp}}</td>\n      <td>{{item.type}}</td>\n      <td>{{item.value}}</td>\n    </tr>\n  </table>\n</div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 600,
+        "y": 720,
+        "wires": [
+            []
+        ]
     },
     {
-        "id": "ui_tab_main",
-        "type": "ui_tab",
-        "name": "Patient Monitor",
-        "icon": "dashboard",
-        "order": 1
+        "id": "77b6e1a8b7f68ce7",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store HR History",
+        "func": "if (!flow.get('hrHistory')) flow.set('hrHistory', []);\nconst history = flow.get('hrHistory');\nhistory.push({\n    value: msg.payload,\n    timestamp: new Date().toLocaleTimeString()\n});\nif (history.length > 10) history.shift();\nflow.set('hrHistory', history);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aaf4e6e84da60a02",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store SpO2 History",
+        "func": "if (!flow.get('spo2History')) flow.set('spo2History', []);\nconst history = flow.get('spo2History');\nhistory.push({\n    value: msg.payload,\n    timestamp: new Date().toLocaleTimeString()\n});\nif (history.length > 10) history.shift();\nflow.set('spo2History', history);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b153916a5f7ebfe",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store Glucose History",
+        "func": "if (!flow.get('glucoseHistory')) flow.set('glucoseHistory', []);\nconst history = flow.get('glucoseHistory');\nhistory.push({\n    value: msg.payload,\n    timestamp: new Date().toLocaleTimeString()\n});\nif (history.length > 10) history.shift();\nflow.set('glucoseHistory', history);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4996b67761375769",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store Temp History",
+        "func": "// Function node in Node-RED\n// Title: Generate Random Temperature\n\nlet temp = (Math.random() * (38 - 24) + 24).toFixed(1);\nmsg.payload = parseFloat(temp);\n\n// Optionally store the current temp\nflow.set(\"currentTemp\", msg.payload);\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": "2",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "9cb250722f474e6c"
+            ]
+        ]
+    },
+    {
+        "id": "e7aaa031e0ef18a1",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store Fall History",
+        "func": "if (!flow.get('eventHistory')) flow.set('eventHistory', []);\nconst history = flow.get('eventHistory');\nhistory.push({\n    type: \"Fall Detected\",\n    value: msg.payload,\n    timestamp: new Date().toLocaleTimeString()\n});\nif (history.length > 20) history.shift();\nflow.set('eventHistory', history);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fef59c0d0cc827cf",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store Emergency History",
+        "func": "if (!flow.get('eventHistory')) flow.set('eventHistory', []);\nconst history = flow.get('eventHistory');\nhistory.push({\n    type: \"Emergency Button\",\n    value: \"Pressed\",\n    timestamp: new Date().toLocaleTimeString()\n});\nif (history.length > 20) history.shift();\nflow.set('eventHistory', history);\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b438637442f5036b",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Store Message History",
+        "func": "if (!flow.get('eventHistory')) flow.set('eventHistory', []);\nconst history = flow.get('eventHistory');\nhistory.push({\n    type: \"OLED Message\",\n    value: msg.payload,\n    timestamp: new Date().toLocaleTimeString()\n});\nif (history.length > 20) history.shift();\nflow.set('eventHistory', history);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f36e92855d577e8d",
+        "type": "ui_gauge",
+        "z": "7d416a795cd91127",
+        "name": "Glucose",
+        "group": "f2e33d02296609fa",
+        "width": "0",
+        "height": "0",
+        "gtype": "gage",
+        "title": "",
+        "label": "Glucose level",
+        "format": "{{value}} mg/dL",
+        "min": "0",
+        "max": "400",
+        "colors": [
+            "#ff0000",
+            "#ffff00",
+            "#00ff00"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 420,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e69e3ef30fd906d2",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Check Vital Signs",
+        "func": "const topic = msg.topic.split('/').pop();\nconst value = parseFloat(msg.payload);\nlet alertMsg = null;\n\n// Check for abnormal values\nif (topic === 'hr' && (value < 60 || value > 100)) {\n    alertMsg = {\n        topic: 'alert',\n        payload: `Abnormal Heart Rate: ${value} bpm`,\n        type: 'danger'\n    };\n} else if (topic === 'spo2' && value < 95) {\n    alertMsg = {\n        topic: 'alert',\n        payload: `Low Oxygen Saturation: ${value}%`,\n        type: 'warning'\n    };\n} else if (topic === 'glucose' && (value < 70 || value > 140)) {\n    alertMsg = {\n        topic: 'alert',\n        payload: `Abnormal Glucose Level: ${value} mg/dL`,\n        type: 'danger'\n    };\n} else if (topic === 'temp' && (value < 36 || value > 37.5)) {\n    alertMsg = {\n        topic: 'alert',\n        payload: `Abnormal Temperature: ${value}°C`,\n        type: 'warning'\n    };\n}\n\nif (alertMsg) {\n    return [msg, alertMsg];\n}\nreturn msg;",
+        "outputs": 2,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 400,
+        "wires": [
+            [],
+            [
+                "9f247f22cc5348c3"
+            ]
+        ]
+    },
+    {
+        "id": "fed38eb1c51044a3",
+        "type": "function",
+        "z": "7d416a795cd91127",
+        "name": "Create Fall Alert",
+        "func": "return {\n    topic: 'alert',\n    payload: `FALL DETECTED! Patient may need assistance.`,\n    type: 'danger',\n    emergency: true\n};",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 540,
+        "wires": [
+            [
+                "9f247f22cc5348c3"
+            ]
+        ]
+    },
+    {
+        "id": "9f247f22cc5348c3",
+        "type": "ui_template",
+        "z": "7d416a795cd91127",
+        "group": "f2e33d02296609fa",
+        "name": "Alert System",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "format": "<style>\n  .alert-popup {\n    position: fixed;\n    top: 20px;\n    right: 20px;\n    z-index: 9999;\n    min-width: 300px;\n    padding: 15px;\n    margin-bottom: 10px;\n    border: 1px solid transparent;\n    border-radius: 4px;\n    box-shadow: 0 4px 8px rgba(0,0,0,0.2);\n    animation: flash 0.5s 3;\n    opacity: 1;\n    transition: opacity 0.5s;\n  }\n  \n  .alert-popup.fade-out {\n    opacity: 0;\n  }\n  \n  @keyframes flash {\n    0%, 100% { opacity: 1; }\n    50% { opacity: 0.5; }\n  }\n  \n  .alert-danger {\n    color: #721c24;\n    background-color: #f8d7da;\n    border-color: #f5c6cb;\n  }\n  \n  .alert-warning {\n    color: #856404;\n    background-color: #fff3cd;\n    border-color: #ffeeba;\n  }\n  \n  .alert-info {\n    color: #0c5460;\n    background-color: #d1ecf1;\n    border-color: #bee5eb;\n  }\n  \n  .alert-btn {\n    float: right;\n    margin-left: 10px;\n    padding: 0.25rem 0.5rem;\n    font-size: 0.875rem;\n    line-height: 1.5;\n    border-radius: 0.2rem;\n    cursor: pointer;\n  }\n  \n  .alert-btn-danger {\n    color: #fff;\n    background-color: #dc3545;\n    border-color: #dc3545;\n  }\n  \n  .alert-btn-secondary {\n    color: #fff;\n    background-color: #6c757d;\n    border-color: #6c757d;\n  }\n</style>\n\n<script>\n(function(scope) {\n    // Track active alerts to prevent duplicates\n    const activeAlerts = new Set();\n    \n    scope.$watch('msg', function(msg) {\n        if (msg && msg.payload) {\n            const alertId = msg.payload + (msg.type || '') + (msg.emergency || '');\n            \n            // Skip if this alert is already active\n            if (activeAlerts.has(alertId)) return;\n            activeAlerts.add(alertId);\n            \n            const type = msg.type || 'info';\n            const emergency = msg.emergency || false;\n            \n            // Create alert container if it doesn't exist\n            let alertContainer = document.getElementById('alert-container');\n            if (!alertContainer) {\n                alertContainer = document.createElement('div');\n                alertContainer.id = 'alert-container';\n                alertContainer.style.position = 'fixed';\n                alertContainer.style.top = '20px';\n                alertContainer.style.right = '20px';\n                alertContainer.style.zIndex = '9999';\n                document.body.appendChild(alertContainer);\n            }\n            \n            // Create alert div\n            const alertDiv = document.createElement('div');\n            alertDiv.className = `alert-popup alert-${type}`;\n            alertDiv.innerHTML = `<strong>ALERT:</strong> ${msg.payload}`;\n            \n            if (emergency) {\n                // Add email button for emergencies\n                const emailBtn = document.createElement('button');\n                emailBtn.className = 'alert-btn alert-btn-danger';\n                emailBtn.innerHTML = 'Notify Relatives';\n                emailBtn.onclick = function() {\n                    alert('Email sent to relatives!');\n                    removeAlert();\n                };\n                \n                const closeBtn = document.createElement('button');\n                closeBtn.className = 'alert-btn alert-btn-secondary';\n                closeBtn.innerHTML = 'Dismiss';\n                closeBtn.onclick = function() {\n                    removeAlert();\n                };\n                \n                alertDiv.appendChild(closeBtn);\n                alertDiv.appendChild(emailBtn);\n            } else {\n                // Add close button for regular alerts\n                const closeBtn = document.createElement('button');\n                closeBtn.className = 'alert-btn alert-btn-secondary';\n                closeBtn.innerHTML = 'Dismiss';\n                closeBtn.onclick = function() {\n                    removeAlert();\n                };\n                alertDiv.appendChild(closeBtn);\n            }\n            \n            alertContainer.appendChild(alertDiv);\n            \n            function removeAlert() {\n                alertDiv.classList.add('fade-out');\n                setTimeout(() => {\n                    if (alertDiv.parentNode) {\n                        alertDiv.parentNode.removeChild(alertDiv);\n                    }\n                    activeAlerts.delete(alertId);\n                }, 500);\n            }\n            \n            // Auto-remove after 4 seconds\n            setTimeout(() => {\n                if (alertDiv.parentNode) {\n                    removeAlert();\n                }\n            }, 4000);\n        }\n    });\n})(scope);\n</script>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 690,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c893d18a8af0d92b",
+        "type": "inject",
+        "z": "7d416a795cd91127",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "d739fda4b5f42359"
+            ]
+        ]
+    },
+    {
+        "id": "d739fda4b5f42359",
+        "type": "http request",
+        "z": "7d416a795cd91127",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://10.6.0.9/data",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 330,
+        "y": 800,
+        "wires": [
+            [
+                "3bab9b5744be259f"
+            ]
+        ]
+    },
+    {
+        "id": "3bab9b5744be259f",
+        "type": "debug",
+        "z": "7d416a795cd91127",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "9cb250722f474e6c",
+        "type": "ui_gauge",
+        "z": "7d416a795cd91127",
+        "name": "Temperature",
+        "group": "f2e33d02296609fa",
+        "width": "",
+        "height": "",
+        "gtype": "gage",
+        "title": "",
+        "label": "Temperature (°C)",
+        "format": "{{value}} °C",
+        "min": "25",
+        "max": "38",
+        "colors": [
+            "#00bfff",
+            "#ffff00",
+            "#ff4500"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b51cafb28f7634c8",
+        "type": "inject",
+        "z": "7d416a795cd91127",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "4996b67761375769"
+            ]
+        ]
     }
 ]
