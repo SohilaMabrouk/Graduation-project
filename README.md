@@ -2,7 +2,7 @@
 
 **Smart IoT System for Chronic Disease Monitoring**  
 *Supervised by Dr. Mohamed Ahmed Maher*  
-**Project Team:** Rafat Ola, Ahmed Sohila, Hisham Baha, Mohamed Karim, Yasser Mohamed, Moamen Nasser, Sabri Waleed :contentReference[oaicite:4]{index=4}
+**Project Team:** Rafat Ola, Ahmed Sohila, Hisham Baha, Mohamed Karim, Yasser Mohamed, Moamen Nasser, Sabri Waleed 
 
 ---
 
@@ -13,7 +13,7 @@ As chronic disease rates continue to climb worldwide—especially in developing 
 - **Continuous Real-Time Monitoring**  
   Tracks vital signs 24/7—SpO₂, heart rate, body temperature, non-invasive interstitial glucose estimate, and fall detection.  
 - **Customizable Patient Interface**  
-  Remote access for doctors, configurable per-patient dashboards and alerts.  
+  Remote access for doctors, MPTC, Patient's close relatives, configurable per-patient dashboards and alerts.  
 - **Flexible Subscription Tiers**  
   Basic / Advanced / Family plans to suit different care needs.  
 - **Automated Alerts**  
@@ -32,12 +32,12 @@ As chronic disease rates continue to climb worldwide—especially in developing 
    - Roadmap includes machine-learning models for early deterioration prediction.
 
 ## Technologies & Tools  
-- **Microcontrollers:** ESP8266 / ESP32  
+- **Microcontrollers:** ESP8266 / ESP32, Arduino Uno 
 - **Sensors:** MAX30100, MAX30205, MPU6050  
 - **Display:** OLED (I²C)  
-- **Protocols:** MQTT, HTTP  
+- **Protocols:** MQTT
 - **Backend & Simulation:** Node-RED, EVE-NG  
-- **Cloud:** Any MQTT-compatible broker (e.g., Mosquitto, AWS IoT)
+- **Cloud:** MQTT-compatible broker (Mosquitto)
 
 ## Getting Started  
 1. **Clone the repo**  
